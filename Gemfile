@@ -8,7 +8,8 @@ gem 'sprockets', '2.11.0'
 
 group :development, :test do
   gem 'sqlite3', '1.3.9'
-  gem 'rspec-rails', '2.14.2'
+  gem 'rspec-rails', '~> 2.14.2'
+  gem 'guard-rspec', '~> 2.5.0'
 end
 
 group :development do
