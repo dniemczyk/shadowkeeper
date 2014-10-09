@@ -4,6 +4,11 @@ describe "StaticPages" do
 
   describe "Home Page" do
 
+    it "should have the right title" do
+      visit '/static_pages/home'
+      expect(page).to have_title('ShadowKeeper | Welcome')
+    end
+
     it "should have the content 'ShadowKeeper'" do
       visit '/static_pages/home'
       expect(page).to have_content('ShadowKeeper')
