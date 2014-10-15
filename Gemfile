@@ -18,8 +18,8 @@ group :development do
 end
 
 group :test do
-  gem 'selenium-webdriver', '2.42.0'
-  gem 'capybara', '2.2.1'
+  gem 'selenium-webdriver', '~> 2.42.0'
+  gem 'capybara', '~> 2.2.1'
   gem 'factory_girl_rails', '~> 4.2.0'
 end
 
