@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "StaticPages" do
+describe "Welcome section" do
 
-  describe "Home Page" do
+  describe "Home page" do
     before { visit root_path }
 
     it "should have just the app name in title" do
@@ -15,7 +15,7 @@ describe "StaticPages" do
     end
   end
 
-  describe "Help Page" do
+  describe "Help page" do
     before { visit help_path }
 
     it "should have a title with app name and 'help'" do
@@ -37,5 +37,16 @@ describe "StaticPages" do
     it "should have the content 'About Us'" do
       expect(page).to have_content('About Us')
     end
+  end
+
+  it "should have the right links on the layout" do
+    visit root_path
+    click_link "About"
+    expect(page).to have_title('About')
+    click_link "Help"
+    expect(page).to have_title('Help')
+    click_link "Home"
+    expect(page).to have_title('ShadowKeeper')
+    expect(page).not_to have_title(' | ')
   end
 end
