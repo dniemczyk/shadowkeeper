@@ -2,8 +2,9 @@ Shadowkeeper::Application.routes.draw do
   get "users/new"
 
   root 'welcome#home'
-  match '/help',  to: 'welcome#help',  via: 'get'
-  match '/about', to: 'welcome#about', via: 'get'
+  match '/signup',  to: 'users#new',     via: 'get'
+  match '/help',    to: 'welcome#help',  via: 'get'
+  match '/about',   to: 'welcome#about', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
