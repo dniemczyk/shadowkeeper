@@ -24,4 +24,25 @@ describe User do
     before { @user.name = "a" * 51 }
     it { should_not be_valid }
   end
+
+  describe "when email format is invalid" do
+    it "should not be valid" do
+      addresses = %w[user@foo,com user_at_foo.org example.user@foo.
+                     foo@baz_bar.net user@bar+baz.com]
+      addresses.each do |invalid_address|
+        @user.email = invalid_address
+        expect(@user).not_to be_valid
+      end
+    end
+  end
+
+  describe "when email format is correct" do
+    it "should be valid" do
+      addresses = %w[user@foo.COM A_US-er@f.b.org frst.lst@foo.jp a+b@bar.cn]
+      addresses.each do |valid_address|
+        @user.email = valid_address
+        expect(@user).to be_valid
+      end
+    end
+  end
 end
