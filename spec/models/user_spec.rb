@@ -41,6 +41,11 @@ describe User do
     it { should_not be_valid }
   end
 
+  describe "when password is too short" do
+    before { @user.password = @user.password_confirmation = "a" * 5 }
+    it { should_not be_valid }
+  end
+
   describe "when name is too long" do
     before { @user.name = "a" * 51 }
     it { should_not be_valid }
