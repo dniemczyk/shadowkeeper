@@ -19,6 +19,7 @@ describe "User pages" do
   end
 
   describe "signup" do
+    let(:submit) { "Create my account" }
     before { visit signup_path }
 
     describe "with invalid information" do
