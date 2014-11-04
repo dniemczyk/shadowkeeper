@@ -1,5 +1,13 @@
 @import "bootstrap";
 
+/* mixins and variables */
+
+@mixin box_sizing($box-model) {
+  -moz-box-sizing: $box-model;
+  -webkit-box-sizing: $box-model;
+  box-sizing: $box-model;
+}
+
 /* universal */
 
 html {
@@ -32,6 +40,7 @@ h1 {
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
+  text-align: center;
 }
 
 h2 {
@@ -45,6 +54,27 @@ h2 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+}
+
+/* forms */
+
+input, textarea, select {
+  border: 1px solid #bbb;
+  background-color: #eee;
+  padding: 5px;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing(border-box);
+}
+
+input {
+  height: auto;
+}
+
+/* buttons */
+.btn-large {
+  margin: 15px 0;
+  padding: 10px;
 }
 
 /* header */
