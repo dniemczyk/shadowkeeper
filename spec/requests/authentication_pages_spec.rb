@@ -68,5 +68,30 @@ describe "Authentication" do
         end
       end
     end
+
+    describe "as wrong user" do
+      let(:user) { FactoryGirl.create(user) }
+      let(:wrong_user) do
+        FactoryGirl.create(:user, email: 'wrong_email@example.com')
+      end
+      before { sign_in(user, no_capybara: true) }
+
+      describe "submiting a GET request to the User#edit action" do
+        before { get edit_user_path(wrong_user) }
+
+        specify do
+          expect(response.body).not_to match(full_title('Edit user'))
+        end
+
+        specify do
+          expect(response).to redirect_to(root_url)
+        end
+      end
+
+      describe "submiting a PATCH request to the User#update action" do
+        before  { patch user_path(user) }
+        specify { expect(response).to redirect_to(root_url) }
+      end
+    end
   end
 end
