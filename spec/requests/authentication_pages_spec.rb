@@ -70,7 +70,7 @@ describe "Authentication" do
     end
 
     describe "as wrong user" do
-      let(:user) { FactoryGirl.create(user) }
+      let(:user) { FactoryGirl.create(:user) }
       let(:wrong_user) do
         FactoryGirl.create(:user, email: 'wrong_email@example.com')
       end
