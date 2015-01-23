@@ -80,7 +80,7 @@ describe "Authentication" do
         before { get edit_user_path(wrong_user) }
 
         specify do
-          expect(response.body).not_to match(full_title('Edit user'))
+          expect(response.body).not_to match('Edit user')
         end
 
         specify do
@@ -89,7 +89,7 @@ describe "Authentication" do
       end
 
       describe "submiting a PATCH request to the User#update action" do
-        before  { patch user_path(user) }
+        before  { patch user_path(wrong_user) }
         specify { expect(response).to redirect_to(root_url) }
       end
     end
