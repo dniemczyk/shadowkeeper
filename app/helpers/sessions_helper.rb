@@ -1,5 +1,5 @@
 module SessionsHelper
-  
+
   def sign_in(user)
     session[:user_id] = user.id
   end
@@ -14,6 +14,10 @@ module SessionsHelper
 
   def current_user=(user)
     @current_user = user
+  end
+
+  def current_user?(user)
+    user == current_user
   end
 
   # Signs out the current user
