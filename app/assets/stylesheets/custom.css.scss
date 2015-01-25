@@ -137,6 +137,15 @@ footer {
   }
 }
 
+/* debug box */
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing(border-box);
+}
+
 /* aside */
 aside {
   border-right: 2px solid $gray-lighter;
