@@ -13,7 +13,8 @@ Bundler.require(*Rails.groups)
 
 module Shadowkeeper
   class Application < Rails::Application
-    # Settings in config/environments/* take precedence over those specified here.
+    # Settings in config/environments/* take precedence
+    # over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
@@ -24,5 +25,21 @@ module Shadowkeeper
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    # Set the generators to create only some specs
+    # and to create Factories (not fixtures)
+    config.generators do |g|
+      g.test_framework :rspec,
+        fixtures: true,
+        view_specs: false,
+        helper_specs: false,
+        routing_specs: false,
+        controller_specs: true,
+        request_specs: false
+      g.fixture_replacement :factory_girl, dir: "spec/factories"
+    end
+
+    # Asset pipeline bootstrap-sass compability
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
   end
 end
