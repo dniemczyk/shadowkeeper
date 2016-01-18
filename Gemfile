@@ -11,13 +11,8 @@ gem 'will_paginate-bootstrap', '~>1.0.0'
 
 group :development, :test do
   gem 'sqlite3', '~> 1.3.9'
-  gem 'rspec-rails', '~> 2.14.2'
-  gem 'guard-rspec', '~> 2.5.0'
-end
-
-group :development do
-  gem 'capistrano'
-  gem 'rvm-capistrano'
+  gem 'rspec-rails', '~> 3.4.0'
+  gem 'guard-rspec', '~> 4.6.0'
 end
 
 group :test do
