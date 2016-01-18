@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
-#ruby-gemset=shadowkeeper_rails_4_0
+ruby '2.2.2'
 
 gem 'rails', '~> 4.0.8'
 gem 'bootstrap-sass', '~> 3.1.0'
